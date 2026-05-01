@@ -1,43 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Casa do Queijo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça a história, valores e localização da Casa do Queijo, referência em queijos artesanais." />
+  <title>Sobre Nós - Casa do Queijo</title>
+  <link rel="stylesheet" href="SobreNos.css" />
 </head>
 <body>
 
-    <section>
+  <a href="#conteudo" class="skip-link">
+    Pular para o conteúdo principal
+  </a>
 
-        <h1>Conheça Nossa História</h1>
+  <main class="container" id="conteudo">
 
-        <p>
-            Em julho de 2019, Alexandre Chagas Bastos decidiu abrir a 
-            <strong>Casa do Queijo</strong>. No começo não foi fácil conquistar 
-            seus clientes, porém com dedicação, esforço e produtos de qualidade, 
-            a loja foi crescendo cada vez mais.
-        </p>
+    <header>
+      <h1>Casa do Queijo</h1>
+      <p class="subtitulo">
+        Qualidade e tradição em cada sabor desde 2019
+      </p>
+    </header>
 
-        <p>
-            Sempre prezando por preços justos e bom atendimento, a Casa do Queijo 
-            se tornou referência na cidade, agradando clientes e amigos que buscam 
-            qualidade e tradição.
-        </p>
+    <a href="index.html" class="voltar" aria-label="Voltar para a página inicial">
+      ← Voltar para página inicial
+    </a>
 
-        <p>
-            Nossa sede está localizada na Rua Arcos, Nº 107 - Coqueiral/MG.
-        </p>
+    <section aria-labelledby="nossa-historia">
 
-        <h2>Nossos Valores</h2>
+      <div class="imagem-historia">
+        <img src="" alt="Foto da Casa do Queijo" id="img-historia" />
+        <p class="imagem-placeholder">📷 Adicione o caminho da imagem no atributo <code>src</code></p>
+      </div>
 
-        <ul>
-            <li>Qualidade nos produtos</li>
-            <li>Preço justo</li>
-            <li>Bom atendimento</li>
-            <li>Respeito aos clientes</li>
-        </ul>
+      <h2 id="nossa-historia">Conheça Nossa História</h2>
 
+      <p>
+        Em julho de 2019, <strong>Alexandre Chagas Bastos</strong> decidiu abrir a
+        <strong>Casa do Queijo</strong>. No começo não foi fácil conquistar
+        seus clientes, porém com dedicação, esforço e produtos de qualidade,
+        a loja foi crescendo cada vez mais.
+      </p>
+
+      <p>
+        Sempre prezando por preços justos e bom atendimento, a Casa do Queijo
+        se tornou referência na cidade, agradando clientes e amigos que buscam
+        qualidade e tradição.
+      </p>
     </section>
+
+    <section aria-labelledby="nossos-valores">
+      <h2 id="nossos-valores">Nossos Valores</h2>
+
+      <ul>
+        <li>Qualidade nos produtos</li>
+        <li>Preço justo</li>
+        <li>Bom atendimento</li>
+        <li>Respeito aos clientes</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="onde-estamos">
+      <h2 id="onde-estamos">Onde Estamos</h2>
+
+      <p class="endereco">
+        <span class="endereco-icone">📍</span>
+        <span>Rua Arcos, Nº 107 — Coqueiral/MG</span>
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Casa do Queijo • Qualidade e tradição em cada sabor
+    </footer>
+
+  </main>
 
 </body>
 </html>
