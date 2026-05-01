@@ -85,8 +85,8 @@ nav a {
 }
 
 .btn-outline {
-    border: 2px solid #fff;
-    color: #fff;
+    background: #f5b041;
+    color: #000;
     padding: 9px 28px;
     border-radius: 25px;
     font-weight: 800;
