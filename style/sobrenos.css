@@ -19,7 +19,7 @@ html {
 body {
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url("https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=1600&q=80");
+    url("../images/queijo.jpg");
 
   background-size: cover;
   background-position: center;
