@@ -6,4 +6,4 @@ A página institucional terá como objetivo aumentar a visibilidade do nosso cli
 de sua marca
 
 ## Autores
-Projeto desenvolvido por: Pedro Bernades Otavio Vilela João Neves Nicolas Jesus Vinicius Icaro
+Projeto desenvolvido por: Pedro Bernades Otavio Vilela João Neves Nicolas Jesus Vinicius Icaro, João Pedro Costa
