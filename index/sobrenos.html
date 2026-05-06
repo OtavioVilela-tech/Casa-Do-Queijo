@@ -1,74 +1,91 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conheça a história, valores e localização da Casa do Queijo, referência em queijos artesanais." />
-  <title>Sobre Nós - Casa do Queijo</title>
-  <link rel="stylesheet" href="sobrenos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós — Casa do Queijo</title>
+    <link rel="stylesheet" href="../style/sobrenos.css">
 </head>
 <body>
 
-  <a href="#conteudo" class="skip-link">
-    Pular para o conteúdo principal
-  </a>
-
-  <main class="container" id="conteudo">
+    <a href="#conteudo" class="skip-link">Ir para o conteúdo</a>
 
     <header>
-      <h1>Casa do Queijo</h1>
-      <p class="subtitulo">
-        Qualidade e tradição em cada sabor desde 2019
-      </p>
+        <div class="logo">Casa Do<br>Queijo!</div>
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="produtos.html">Catálogo</a>
+            <a href="contato.html" class="btn-nav">Contato</a>
+        </nav>
     </header>
 
-    <a href="index.html" class="voltar" aria-label="Voltar para a página inicial">
-      ← Voltar para página inicial
-    </a>
+    <main id="conteudo">
 
-    <section aria-labelledby="nossa-historia">
+        <a href="home.html" class="voltar">← Voltar para o início</a>
 
-      <h2 id="nossa-historia">Conheça Nossa História</h2>
+        <div class="container">
 
-      <p>
-        Em julho de 2019, <strong>Alexandre Chagas Bastos</strong> decidiu abrir a
-        <strong>Casa do Queijo</strong>. No começo não foi fácil conquistar
-        seus clientes, porém com dedicação, esforço e produtos de qualidade,
-        a loja foi crescendo cada vez mais.
-      </p>
+            <header class="topo">
+                <h1>Casa do Queijo</h1>
+                <p class="subtitulo">O melhor distribuidor de queijo do Sul de Minas</p>
+            </header>
 
-      <p>
-        Sempre prezando por preços justos e bom atendimento, a Casa do Queijo
-        se tornou referência na cidade, agradando clientes e amigos que buscam
-        qualidade e tradição.
-      </p>
+            <section aria-labelledby="historia">
+                <h2 id="historia">Nossa História</h2>
+
+                <div class="imagem-historia">
+                    <img src="../images/fotocarrossel4.jpeg" alt="Variedade de queijos artesanais da Casa do Queijo">
+                </div>
+
+                <p>
+                    A Casa do Queijo nasceu da paixão de uma família mineira pelo queijo artesanal.
+                    Localizada em Coqueiral/MG, no coração do Sul de Minas, surgimos com um propósito
+                    simples: levar o melhor queijo da região diretamente para sua mesa.
+                </p>
+                <p>
+                    Com anos de experiência no mercado e parcerias sólidas com produtores locais,
+                    selecionamos apenas os queijos de maior qualidade — do canastra curado ao provolone
+                    especial — garantindo sabor, tradição e cuidado em cada pedaço.
+                </p>
+            </section>
+            <section class="secao-produtor" aria-labelledby="produtor">
+    <h2 id="produtor">Quem está por trás</h2>
+    <div class="foto-produtor">
+        <img src="../images/vanderleiSobreNos.jpeg" alt="Foto do produtor da Casa do Queijo">
+        <div class="foto-placeholder">
+        </div>
+    </div>
+    <p>
+        Aqui você pode colocar uma apresentação pessoal — quem fundou, há quanto tempo
+        está no negócio, a relação com os produtores parceiros e o amor pelo queijo artesanal
+        do Sul de Minas.
+    </p>
     </section>
 
-    <section aria-labelledby="nossos-valores">
-      <h2 id="nossos-valores">Nossos Valores</h2>
+            <section aria-labelledby="diferenciais">
+                <h2 id="diferenciais">Por que nos escolher?</h2>
+                <ul>
+                    <li>Produtos diretamente de produtores artesanais do Sul de Minas</li>
+                    <li>Seleção rigorosa de qualidade em cada lote</li>
+                    <li>Atendimento personalizado pelo WhatsApp</li>
+                    <li>Entrega para toda a região</li>
+                    <li>Variedade completa: curados, temperados, frescos e doces</li>
+                </ul>
+            </section>
 
-      <ul>
-        <li>Qualidade nos produtos</li>
-        <li>Preço justo</li>
-        <li>Bom atendimento</li>
-        <li>Respeito aos clientes</li>
-      </ul>
-    </section>
+            <section class="secao-cta" aria-labelledby="cta">
+                <h2 id="cta">Vamos conversar?</h2>
+                <p>Ficou com alguma dúvida, quer fazer um pedido especial ou conhecer mais produtos?
+                Entre em contato — respondemos rápido!</p>
+                <a href="contato.html" class="btn-contato">Fale Conosco</a>
+            </section>
 
-    <section aria-labelledby="onde-estamos">
-      <h2 id="onde-estamos">Onde Estamos</h2>
-
-      <p class="endereco">
-        <span class="endereco-icone">📍</span>
-        <span>Rua Arcos, Nº 107 — Coqueiral/MG</span>
-      </p>
-    </section>
+        </div>
+    </main>
 
     <footer>
-      © 2026 Casa do Queijo • Qualidade e tradição em cada sabor
+        <p>© 2025 Casa do Queijo — Coqueiral/MG</p>
     </footer>
-
-  </main>
 
 </body>
 </html>
