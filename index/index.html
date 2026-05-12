@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Casa do Queijo</title>
+
+<style>
+
+:root{
+    --dourado:#f5b041;
+    --fundo-card:rgba(0,0,0,0.58);
+    --borda:rgba(245,176,65,0.2);
+    --hover:rgba(245,176,65,0.1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    color:#fff;
+    background:
+    linear-gradient(rgba(0,0,0,.70),rgba(0,0,0,.70)),
+    url("../images/queijo.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:999;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:900;
+    line-height:20px;
+    color:#fff;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--dourado);
+}
+
+.btn{
+    background:var(--dourado);
+    color:#000 !important;
+    padding:10px 22px;
+    border-radius:999px;
+    text-transform:uppercase;
+    font-weight:800;
+}
+
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
+}
+
+.content{
+    max-width:800px;
+}
+
+.content h1{
+    font-size:52px;
+    margin-bottom:18px;
+    font-weight:900;
+}
+
+.content p{
+    font-size:24px;
+    margin-bottom:35px;
+    line-height:1.5;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn-outline{
+    background:var(--dourado);
+    color:#000;
+    padding:10px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+
+.carrossel-section{
+    background:#111;
+    padding:90px 20px;
+    text-align:center;
+}
+
+.carrossel-titulo{
+    font-size:36px;
+    color:var(--dourado);
+    margin-bottom:40px;
+    font-weight:900;
+}
+
+.carrossel-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    max-width:900px;
+    margin:auto;
+}
+
+.carrossel-track-container{
+    overflow:hidden;
+    width:100%;
+    border-radius:18px;
+}
+
+.carrossel-track{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.slide{
+    min-width:100%;
+    position:relative;
+}
+
+.slide img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    display:block;
+}
+
+.slide-legenda{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.55);
+    padding:16px;
+    color:var(--dourado);
+    font-weight:700;
+}
+
+.carrossel-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:var(--dourado);
+    color:#000;
+    font-size:28px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.carrossel-dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border:none;
+    border-radius:50%;
+    background:#555;
+    cursor:pointer;
+}
+
+.dot.ativo{
+    background:var(--dourado);
+}
+
+
+section{
+    scroll-margin-top:120px;
+}
+
+
+#sobre{
+    padding:100px 8%;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    background:var(--fundo-card);
+    border:1px solid var(--borda);
+    border-radius:22px;
+    padding:45px;
+    backdrop-filter:blur(6px);
+}
+
+.topo{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.topo h1{
+    color:var(--dourado);
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    color:#bbb;
+}
+
+#sobre h2{
+    color:var(--dourado);
+    margin-bottom:18px;
+    margin-top:30px;
+    font-size:28px;
+}
+
+#sobre p{
+    line-height:1.8;
+    color:#ddd;
+    margin-bottom:14px;
+    background:rgba(255,255,255,.05);
+    padding:18px;
+    border-radius:14px;
+}
+
+.imagem-historia{
+    overflow:hidden;
+    border-radius:14px;
+    margin-bottom:18px;
+}
+
+.imagem-historia img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.foto-produtor{
+    overflow:hidden;
+    border-radius:14px;
+    margin-bottom:18px;
+}
+
+.foto-produtor img{
+    width:100%;
+    height:600px;
+    object-fit:cover;
+}
+
+#sobre ul{
+    list-style:none;
+}
+
+#sobre li{
+    background:rgba(255,255,255,.05);
+    padding:16px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+#catalogo{
+    padding:100px 8%;
+    background:#111;
+}
+
+.catalogo-topo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.catalogo-topo h1{
+    font-size:42px;
+    color:var(--dourado);
+    margin-bottom:10px;
+}
+
+.queijos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.queijo{
+    background:rgba(255,255,255,.05);
+    border-radius:14px;
+    overflow:hidden;
+    text-decoration:none;
+    color:#fff;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+.queijo:hover{
+    transform:translateY(-5px);
+    border-color:var(--dourado);
+}
+
+.queijo img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.texto{
+    padding:18px;
+}
+
+.texto h2{
+    color:var(--dourado);
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.texto p{
+    color:#ccc;
+    line-height:1.6;
+}
+
+/* CONTATO */
+
+#contato{
+    padding:100px 8%;
+}
+
+.contato-card{
+    max-width:1100px;
+    margin:auto;
+    background:rgba(0,0,0,.72);
+    border-radius:24px;
+    border:1px solid rgba(245,176,65,.35);
+    padding:48px;
+}
+
+.label{
+    color:var(--dourado);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+}
+
+.contato-card h2{
+    margin-top:14px;
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.descricao{
+    color:#ddd;
+    margin-bottom:35px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:22px;
+}
+
+.info-box{
+    background:rgba(245,176,65,.08);
+    border:1px solid rgba(245,176,65,.35);
+    border-radius:18px;
+    padding:22px;
+}
+
+.info-box iframe{
+    width:100%;
+    height:320px;
+    border:0;
+    border-radius:14px;
+    margin-top:15px;
+}
+
+.btn-whatsapp{
+    display:inline-block;
+    margin-top:25px;
+    background:var(--dourado);
+    color:#111;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:900;
+    text-decoration:none;
+}
+
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#111;
+    color:#777;
+}
+
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .content h1{
+        font-size:36px;
+    }
+
+    .content p{
+        font-size:20px;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .slide img{
+        height:260px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .foto-produtor img{
+        height:350px;
+    }
+
+    .container,
+    .contato-card{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Casa Do<br>Queijo!
+    </div>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#contato" class="btn">Contato</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="content">
+
+        <h1>O MELHOR QUEIJO DA REGIÃO</h1>
+
+        <p>
+            Conheça o melhor distribuidor de<br>
+            queijo do Sul de Minas
+        </p>
+
+        <div class="buttons">
+            <a href="#sobre" class="btn-outline">Sobre</a>
+            <a href="#catalogo" class="btn">Catálogo</a>
+            <a href="#contato" class="btn">Contato</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="carrossel-section">
+
+    <h2 class="carrossel-titulo">Nossos Produtos</h2>
+
+    <div class="carrossel-wrapper">
+
+        <button class="carrossel-btn prev">&#8249;</button>
+
+        <div class="carrossel-track-container">
+
+            <div class="carrossel-track">
+
+                <div class="slide">
+                    <img src="../images/fotocarrossel1.jpeg">
+                    <p class="slide-legenda">Doces e Queijos</p>
+                </div>
+
+                <div class="slide">
+                    <img src="../images/fotocarrossel2.jpeg">
+                    <p class="slide-legenda">Queijo Provolone Especial</p>
+                </div>
+
+                <div class="slide">
+                    <img src="../images/fotocarrossel3.jpeg">
+                    <p class="slide-legenda">Queijo Parmesão</p>
+                </div>
+
+                <div class="slide">
+                    <img src="../images/fotocarrossel4.jpeg">
+                    <p class="slide-legenda">Variedade de Canastras Artesanais</p>
+                </div>
+
+                <div class="slide">
+                    <img src="../images/fotocarrossel5.jpeg">
+                    <p class="slide-legenda">Queijos Temperados</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="carrossel-btn next">&#8250;</button>
+
+    </div>
+
+    <div class="carrossel-dots"></div>
+
+</section>
+
+<section id="sobre">
+
+<div class="container">
+
+    <div class="topo">
+        <h1>Casa do Queijo</h1>
+        <p class="subtitulo">
+            O melhor distribuidor de queijo do Sul de Minas
+        </p>
+    </div>
+
+    <h2>Nossa História</h2>
+
+    <div class="imagem-historia">
+        <img src="../images/fotocarrossel4.jpeg">
+    </div>
+
+    <p>
+        A Casa do Queijo nasceu da paixão de uma família mineira pelo queijo artesanal.
+        Localizada em Coqueiral/MG, surgimos com um propósito simples:
+        levar o melhor queijo da região diretamente para sua mesa.
+    </p>
+
+    <p>
+        Com anos de experiência no mercado e parcerias sólidas com produtores locais,
+        selecionamos apenas os queijos de maior qualidade.
+    </p>
+
+    <h2>Quem está por trás</h2>
+
+    <div class="foto-produtor">
+        <img src="../images/vanderleiSobreNos.jpeg">
+    </div>
+
+    <p>
+        Trabalhamos diariamente para entregar qualidade,
+        tradição e o verdadeiro sabor do queijo mineiro artesanal.
+    </p>
+
+    <h2>Por que nos escolher?</h2>
+
+    <ul>
+        <li>Produtos artesanais do Sul de Minas</li>
+        <li>Qualidade selecionada</li>
+        <li>Atendimento personalizado</li>
+        <li>Entrega para toda região</li>
+        <li>Grande variedade de produtos</li>
+    </ul>
+
+</div>
+
+</section>
+
+<section id="catalogo">
+
+<div class="catalogo-topo">
+    <h1>Catálogo</h1>
+    <p>Escolha um produto e peça no WhatsApp</p>
+</div>
+
+<div class="queijos">
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/kit4Queijo.jpeg">
+    <div class="texto">
+        <h2>Kit 4 Queijos — R$35,00</h2>
+        <p>Kit com 4 tipos de queijos.</p>
+    </div>
+</a>
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/minasPadrao.jpeg">
+    <div class="texto">
+        <h2>Queijo Minas Padrão — R$35,00</h2>
+        <p>Queijo suave e macio ideal para o dia a dia.</p>
+    </div>
+</a>
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/kitParmesao.jpeg">
+    <div class="texto">
+        <h2>Kit Parmesão — R$45,00</h2>
+        <p>Seleção especial de parmesão.</p>
+    </div>
+</a>
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/nozinhoPadrao.jpeg">
+    <div class="texto">
+        <h2>Nozinho Padrão — R$35,00</h2>
+        <p>Queijo macio e saboroso.</p>
+    </div>
+</a>
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/ricotaPadrao.jpeg">
+    <div class="texto">
+        <h2>Ricota Padrão — R$20,00</h2>
+        <p>Leve, branca e saudável.</p>
+    </div>
+</a>
+
+<a class="queijo" href="https://wa.me/5535988091127" target="_blank">
+    <img src="../images/provoloneAoVinho.jpeg">
+    <div class="texto">
+        <h2>Provolone ao Vinho — R$35,00</h2>
+        <p>Sabor marcante e sofisticado.</p>
+    </div>
+</a>
+
+</div>
+
+</section>
+
+
+<section id="contato">
+
+<div class="contato-card">
+
+    <p class="label">Contato</p>
+
+    <h2>MELHOR QUEIJO DIRETO NA SUA CASA</h2>
+
+    <p class="descricao">
+        Entre em contato agora!
+    </p>
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <p class="label">Contato</p>
+
+            <a href="https://wa.me/35988091127"
+               target="_blank"
+               class="btn-whatsapp">
+
+               WhatsApp
+
+            </a>
+
+            <br><br>
+
+            <p class="label">E-mail</p>
+            <p>casadoqueijocoq@gmail.com</p>
+
+        </div>
+
+        <div class="info-box">
+
+            <p class="label">Endereço</p>
+
+            <p>Rua Arcos, Nº 107 — Coqueiral/MG</p>
+
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18..."
+            loading="lazy">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+    © 2025 Casa do Queijo — Coqueiral/MG
+</footer>
+
+<script>
+
+const track = document.querySelector('.carrossel-track');
+const slides = document.querySelectorAll('.slide');
+const btnPrev = document.querySelector('.carrossel-btn.prev');
+const btnNext = document.querySelector('.carrossel-btn.next');
+const dotsContainer = document.querySelector('.carrossel-dots');
+
+let indiceAtual = 0;
+const total = slides.length;
+
+slides.forEach((_, i) => {
+
+    const dot = document.createElement('button');
+
+    dot.classList.add('dot');
+
+    if(i === 0) dot.classList.add('ativo');
+
+    dot.addEventListener('click', () => irPara(i));
+
+    dotsContainer.appendChild(dot);
+
+});
+
+const dots = document.querySelectorAll('.dot');
+
+function irPara(indice){
+
+    indiceAtual = (indice + total) % total;
+
+    track.style.transform =
+    `translateX(-${indiceAtual * 100}%)`;
+
+    dots.forEach(d => d.classList.remove('ativo'));
+
+    dots[indiceAtual].classList.add('ativo');
+
+}
+
+btnNext.addEventListener('click', () => irPara(indiceAtual + 1));
+
+btnPrev.addEventListener('click', () => irPara(indiceAtual - 1));
+
+setInterval(() => irPara(indiceAtual + 1), 4000);
+
+</script>
+
+</body>
+</html>
