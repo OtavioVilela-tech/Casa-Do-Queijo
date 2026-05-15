@@ -310,18 +310,18 @@ section{
 }
 
 .foto-produtor{
+    width:100%;
+    max-width:520px;
+    margin:0 auto 18px;
     overflow:hidden;
-    border-radius:14px;
-    margin-bottom:18px;
+    border-radius:22px;
 }
 
 .foto-produtor img{
-    width:500px;
-    height:100%;
-    object-fit:fixed;
+    width:100%;
+    height:auto;
     display:block;
-    margin: auto;
-    border-radius:50px;
+    border-radius:22px;
 }
 
 #sobre ul{
@@ -431,6 +431,7 @@ section{
     display:grid;
     grid-template-columns:1fr 2fr;
     gap:22px;
+    align-items:start;
 }
 
 .info-box{
@@ -529,9 +530,18 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .foto-produtor img{
-        height:350px;
+  .foto-produtor{
+        max-width:100%;
+        border-radius:20px;
     }
+
+    .foto-produtor img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+        border-radius:20px;
+    }
+
 
     .container,
     .contato-card{
