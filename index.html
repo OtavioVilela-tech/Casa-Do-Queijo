@@ -488,6 +488,66 @@ section{
     text-decoration:none;
 }
 
+/* FEEDBACK */
+
+#feedback{
+    padding:100px 8%;
+    background:#111;
+}
+
+#feedback h2{
+    text-align:center;
+    color:var(--dourado);
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+#feedback form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:600px;
+    margin:0 auto;
+}
+
+#feedback input,
+#feedback textarea{
+    padding:12px;
+    border:1px solid rgba(245,176,65,.35);
+    border-radius:8px;
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#feedback input::placeholder,
+#feedback textarea::placeholder{
+    color:#aaa;
+}
+
+#feedback input:focus,
+#feedback textarea:focus{
+    outline:none;
+    border-color:var(--dourado);
+    background:rgba(255,255,255,.08);
+}
+
+#feedback button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:var(--dourado);
+    color:#000;
+    font-weight:900;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:.3s;
+    margin-top:12px;
+}
+
+#feedback button:hover{
+    background:#e8a935;
+}
 
 footer{
     text-align:center;
@@ -982,6 +1042,37 @@ footer{
 
 </section>
 
+<section id="feedback">
+    <h2>Deixe seu Feedback</h2>
+
+    <form action="https://formspree.io/f/mjgdoknn" method="POST">
+        <input
+            type="text"
+            name="nome"
+            placeholder="Seu nome"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Seu e-mail"
+            required
+        >
+
+        <textarea
+            name="mensagem"
+            placeholder="Conte-nos sua experiência..."
+            rows="5"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Enviar Feedback
+        </button>
+    </form>
+</section>
+
 <footer>
     © 2025 Casa do Queijo — Coqueiral/MG
 </footer>
@@ -1001,7 +1092,7 @@ slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.classList.add('dot');
     if (i === 0) dot.classList.add('ativo');
-    dot.addEventListener('click', () => ir(i));
+    dot.addEventListener('click', () => irParaSlide(i));
     dotsContainer.appendChild(dot);
 });
 
@@ -1012,23 +1103,20 @@ function atualizarCarrossel() {
     });
 }
 
-function proximo() {
-    indiceAtual = (indiceAtual + 1) % total;
-    atualizarCarrossel();
-}
-
-function anterior() {
-    indiceAtual = (indiceAtual - 1 + total) % total;
-    atualizarCarrossel();
-}
-
-function ir(i) {
+function irParaSlide(i) {
     indiceAtual = i;
     atualizarCarrossel();
 }
 
-btnNext.addEventListener('click', proximo);
-btnPrev.addEventListener('click', anterior);
+btnNext.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + 1) % total;
+    atualizarCarrossel();
+});
+
+btnPrev.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - 1 + total) % total;
+    atualizarCarrossel();
+});
 
 </script>
 
