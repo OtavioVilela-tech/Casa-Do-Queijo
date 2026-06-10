@@ -610,10 +610,46 @@ footer{
 
 }
 
+
+.acessibilidade{
+    position:fixed;
+    top:120px;
+    right:20px;
+    z-index:9999;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.acessibilidade button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    background:#f5b041;
+}
+.contraste{
+    background:#000 !important;
+    color:#fff !important;
+}
+.contraste *{
+    border-color:#fff !important;
+}
+a:focus,button:focus,input:focus,textarea:focus{
+    outline:3px solid #f5b041;
+    outline-offset:3px;
+}
+
 </style>
 </head>
 
 <body>
+<div class="acessibilidade">
+    <button onclick="aumentarFonte()">A+</button>
+    <button onclick="diminuirFonte()">A-</button>
+    <button onclick="altoContraste()">Contraste</button>
+    <button onclick="resetarAcessibilidade()">Resetar</button>
+</div>
 
 <header>
 
@@ -657,29 +693,29 @@ footer{
 
     <div class="carrossel-wrapper">
 
-        <button class="carrossel-btn prev">&#8249;</button>
+        <button class="carrossel-btn prev" aria-label="Imagem anterior">&#8249;</button>
 
         <div class="carrossel-track-container">
 
             <div class="carrossel-track">
 
                 <div class="slide">
-                    <img src="./images/fotocarrossel1.jpeg">
+                    <img src="./images/fotocarrossel1.jpeg" alt="Doces e queijos artesanais">
                     <p class="slide-legenda">Doces e Queijos</p>
                 </div>
 
                 <div class="slide">
-                    <img src="./images/fotocarrossel2.jpeg">
+                    <img src="./images/fotocarrossel2.jpeg" alt="Queijo Provolone Especial">
                     <p class="slide-legenda">Queijo Provolone Especial</p>
                 </div>
 
                 <div class="slide">
-                    <img src="./images/fotocarrossel3.jpeg">
+                    <img src="./images/fotocarrossel3.jpeg" alt="Queijo Parmesão">
                     <p class="slide-legenda">Queijo Parmesão</p>
                 </div>
 
                 <div class="slide">
-                    <img src="./images/fotocarrossel4.jpeg">
+                    <img src="./images/fotocarrossel4.jpeg" alt="Queijos artesanais da Canastra">
                     <p class="slide-legenda">Variedade de Canastras Artesanais</p>
                 </div>
 
@@ -692,7 +728,7 @@ footer{
 
         </div>
 
-        <button class="carrossel-btn next">&#8250;</button>
+        <button class="carrossel-btn next" aria-label="Próxima imagem">&#8250;</button>
 
     </div>
 
@@ -731,7 +767,7 @@ footer{
     <h2>Quem está por trás:</h2>
 
     <div class="foto-produtor">
-        <img src="./images/vanderleiSobreNos.jpeg">
+        <img src="./images/vanderleiSobreNos.jpeg" alt="Produtor da Casa do Queijo">
     </div>
 
     <p>
@@ -1046,26 +1082,14 @@ footer{
     <h2>Deixe seu Feedback</h2>
 
     <form action="https://formspree.io/f/mjgdoknn" method="POST">
-        <input
-            type="text"
-            name="nome"
-            placeholder="Seu nome"
-            required
-        >
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" name="nome" required>
 
-        <input
-            type="email"
-            name="email"
-            placeholder="Seu e-mail"
-            required
-        >
+        <label for="email">E-mail</label>
+        <input id="email" type="email" name="email" required>
 
-        <textarea
-            name="mensagem"
-            placeholder="Conte-nos sua experiência..."
-            rows="5"
-            required
-        ></textarea>
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
         <button type="submit">
             Enviar Feedback
@@ -1119,6 +1143,26 @@ btnPrev.addEventListener('click', () => {
 });
 
 </script>
+
+
+<script>
+let tamanhoFonte = 100;
+function aumentarFonte(){ tamanhoFonte += 10; document.body.style.fontSize = tamanhoFonte + "%"; }
+function diminuirFonte(){ tamanhoFonte -= 10; document.body.style.fontSize = tamanhoFonte + "%"; }
+function altoContraste(){ document.body.classList.toggle("contraste"); }
+function resetarAcessibilidade(){
+ tamanhoFonte = 100;
+ document.body.style.fontSize = "100%";
+ document.body.classList.remove("contraste");
+}
+</script>
+
+<div vw class="enabled">
+<div vw-access-button class="active"></div>
+<div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
 
 </body>
 </html>
