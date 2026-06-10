@@ -103,7 +103,7 @@ nav a:hover{
     overflow:hidden;
     background:
     linear-gradient(135deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.55) 50%, rgba(0,0,0,.85) 100%),
-    url("../images/queijo.jpg");
+    url("./images/queijo.jpg");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -488,6 +488,66 @@ section{
     text-decoration:none;
 }
 
+/* FEEDBACK */
+
+#feedback{
+    padding:100px 8%;
+    background:#111;
+}
+
+#feedback h2{
+    text-align:center;
+    color:var(--dourado);
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+#feedback form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:600px;
+    margin:0 auto;
+}
+
+#feedback input,
+#feedback textarea{
+    padding:12px;
+    border:1px solid rgba(245,176,65,.35);
+    border-radius:8px;
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#feedback input::placeholder,
+#feedback textarea::placeholder{
+    color:#aaa;
+}
+
+#feedback input:focus,
+#feedback textarea:focus{
+    outline:none;
+    border-color:var(--dourado);
+    background:rgba(255,255,255,.08);
+}
+
+#feedback button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:var(--dourado);
+    color:#000;
+    font-weight:900;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:.3s;
+    margin-top:12px;
+}
+
+#feedback button:hover{
+    background:#e8a935;
+}
 
 footer{
     text-align:center;
@@ -550,10 +610,33 @@ footer{
 
 }
 
+
+.acessibilidade{position:fixed;bottom:15px;right:15px;z-index:9999}
+#abrirAcessibilidade{width:52px;height:52px;border-radius:50%;border:none;background:#f5b041;font-size:22px;cursor:pointer}
+#menuAcessibilidade{display:flex;flex-direction:column;gap:5px;margin-top:5px}
+#menuAcessibilidade button{width:52px;height:40px;border:none;border-radius:8px;background:#f5b041;font-weight:bold;cursor:pointer}
+.contraste{background:#000!important;color:#fff!important}
+.contraste *{border-color:#fff!important}
+a:focus,button:focus,input:focus,textarea:focus{outline:3px solid #f5b041;outline-offset:3px}
+@media(max-width:768px){
+#abrirAcessibilidade{width:45px;height:45px}
+#menuAcessibilidade button{width:45px;height:36px;font-size:11px}
+}
 </style>
 </head>
 
+
 <body>
+<div class="acessibilidade">
+    <button id="abrirAcessibilidade" aria-label="Abrir menu de acessibilidade">♿</button>
+    <div id="menuAcessibilidade" style="display:none;">
+        <button onclick="aumentarFonte()">A+</button>
+        <button onclick="diminuirFonte()">A-</button>
+        <button onclick="altoContraste()">🌓</button>
+        <button onclick="resetarAcessibilidade()">↺</button>
+    </div>
+</div>
+
 
 <header>
 
@@ -597,34 +680,34 @@ footer{
 
     <div class="carrossel-wrapper">
 
-        <button class="carrossel-btn prev">&#8249;</button>
+        <button class="carrossel-btn prev" aria-label="Imagem anterior">&#8249;</button>
 
         <div class="carrossel-track-container">
 
             <div class="carrossel-track">
 
                 <div class="slide">
-                    <img src="../images/fotocarrossel1.jpeg">
+                    <img src="./images/fotocarrossel1.jpeg" alt="fotocarrossel1">
                     <p class="slide-legenda">Doces e Queijos</p>
                 </div>
 
                 <div class="slide">
-                    <img src="../images/fotocarrossel2.jpeg">
+                    <img src="./images/fotocarrossel2.jpeg" alt="fotocarrossel2">
                     <p class="slide-legenda">Queijo Provolone Especial</p>
                 </div>
 
                 <div class="slide">
-                    <img src="../images/fotocarrossel3.jpeg">
+                    <img src="./images/fotocarrossel3.jpeg" alt="fotocarrossel3">
                     <p class="slide-legenda">Queijo Parmesão</p>
                 </div>
 
                 <div class="slide">
-                    <img src="../images/fotocarrossel4.jpeg">
+                    <img src="./images/fotocarrossel4.jpeg" alt="fotocarrossel4">
                     <p class="slide-legenda">Variedade de Canastras Artesanais</p>
                 </div>
 
                 <div class="slide">
-                    <img src="../images/fotocarrossel5.jpeg">
+                    <img src="./images/fotocarrossel5.jpeg" alt="fotocarrossel5">
                     <p class="slide-legenda">Queijos Temperados</p>
                 </div>
 
@@ -632,7 +715,7 @@ footer{
 
         </div>
 
-        <button class="carrossel-btn next">&#8250;</button>
+        <button class="carrossel-btn next" aria-label="Próxima imagem">&#8250;</button>
 
     </div>
 
@@ -654,7 +737,7 @@ footer{
     <h2>Nossa História:</h2>
 
     <div class="imagem-historia">
-        <img src="../images/fotocarrossel4.jpeg">
+        <img src="./images/fotocarrossel4.jpeg" alt="fotocarrossel4">
     </div>
 
     <p>
@@ -671,7 +754,7 @@ footer{
     <h2>Quem está por trás:</h2>
 
     <div class="foto-produtor">
-        <img src="../images/vanderleiSobreNos.jpeg">
+        <img src="./images/vanderleiSobreNos.jpeg" alt="vanderleiSobreNos">
     </div>
 
     <p>
@@ -706,7 +789,7 @@ footer{
     <div class="queijos">
 
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no kit 4 queijos." target="_blank">
-            <img src="../images/kit4Queijo.jpeg">
+            <img src="./images/kit4Queijo.jpeg" alt="kit4Queijo">
             <div class="texto">
                 <h2>Quit 4 queijos R$:35,00</h2>
                 <p>Kit com 4 tipos de queijos, perfeito para servir ou degustar.</p>
@@ -714,7 +797,7 @@ footer{
         </a>
 
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Minas padrão." target="_blank">
-            <img src="../images/minasPadrao.jpeg">
+            <img src="./images/minasPadrao.jpeg" alt="minasPadrao">
             <div class="texto">
                 <h2>Queijo Minas padrão R$:35,00</h2>
                 <p>Queijo brasileiro de sabor suave, textura macia e levemente firme, ideal para o dia a dia.</p>
@@ -722,7 +805,7 @@ footer{
         </a>
 
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Kit Parmesão." target="_blank">
-            <img src="../images/kitParmesao.jpeg">
+            <img src="./images/kitParmesao.jpeg" alt="kitParmesao">
             <div class="texto">
                 <h2>kit Parmesão R$:45,00</h2>
                 <p>Seleção de queijos parmesão de sabor marcante, textura firme e ideal para ralar ou consumir em pedaços.</p>
@@ -730,7 +813,7 @@ footer{
         </a>
 
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse na Mussarela de Búfalla." target="_blank">
-            <img src="../images/fotocarrossel4.jpeg">
+            <img src="./images/fotocarrossel4.jpeg" alt="fotocarrossel4">
             <div class="texto">
                 <h2>Mussarela de Búfala R$:35,00</h2>
                 <p>Queijo branco, macio e suculento, com sabor leve e levemente ácido, feito com leite de búfala.</p>
@@ -738,175 +821,175 @@ footer{
         </a>
 
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Nozinho de Búfalla." target="_blank">
-            <img src="../images/nozinhoDeBufalla.jpeg">
+            <img src="./images/nozinhoDeBufalla.jpeg" alt="nozinhoDeBufalla">
             <div class="texto">
                 <h2>Nozinho de Búfala R$:35,00</h2>
                 <p>Queijo macio e delicado, com sabor suave e levemente ácido, feito com leite de búfala, ideal para petiscos.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Nozinho Defumado." target="_blank">
-            <img src="../images/nozinhoDefumado.jpeg">
+            <img src="./images/nozinhoDefumado.jpeg" alt="nozinhoDefumado">
             <div class="texto">
                 <h2>Nozinho Defumado R$:35,00</h2>
                 <p>Queijo macio com leve sabor defumado, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Nozinho de Orégano." target="_blank">
-            <img src="../images/nozinhoOregano.jpeg">
+            <img src="./images/nozinhoOregano.jpeg" alt="nozinhoOregano">
             <div class="texto">
                 <h2>Nozinho De Orégano R$:35,00</h2>
                 <p>Queijo macio com leve sabor de orégano, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Nozinho Padrão." target="_blank">
-            <img src="../images/nozinhoPadrao.jpeg">
+            <img src="./images/nozinhoPadrao.jpeg" alt="nozinhoPadrao">
             <div class="texto">
                 <h2>Nozinho Padrão R$:35,00</h2>
                 <p>Queijo macio e suave, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Palito De Orégano." target="_blank">
-            <img src="../images/palitoOregano.jpeg">
+            <img src="./images/palitoOregano.jpeg" alt="palitoOregano">
             <div class="texto">
                 <h2>Palito De Orégano R$:35,00</h2>
                 <p>Queijo em formato de palito, macio e com leve sabor de orégano, ideal para petiscos.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Palito Padrão." target="_blank">
-            <img src="../images/palitoPadrao.jpeg">
+            <img src="./images/palitoPadrao.jpeg" alt="palitoPadrao">
             <div class="texto">
                 <h2>Palito Padrão R$:35,00</h2>
                 <p>Queijo em formato de palito, macio e de sabor suave, ideal para petiscos.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Parmesão Capa Preta." target="_blank">
-            <img src="../images/parmesaoCapaPreta.jpeg">
+            <img src="./images/parmesaoCapaPreta.jpeg" alt="parmesaoCapaPreta">
             <div class="texto">
                 <h2>Queijo Parmesão Capa Preta R$:38,00</h2>
                 <p>Queijo de sabor intenso, textura firme e maturação mais longa, ideal para ralar ou consumir em pedaços.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Prolone De Alho Defumado." target="_blank">
-            <img src="../images/provoloneAlhoDefumado.jpeg">
+            <img src="./images/provoloneAlhoDefumado.jpeg" alt="provoloneAlhoDefumado">
             <div class="texto">
                 <h2>Queijo Provolone De Alho Defumado R$:35,00</h2>
                 <p>Queijo firme com sabor marcante de alho e leve toque defumado, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Provolone Ao Vinho." target="_blank">
-            <img src="../images/provoloneAoVinho.jpeg">
+            <img src="./images/provoloneAoVinho.jpeg" alt="provoloneAoVinho">
             <div class="texto">
                 <h2>Queijo Provolone Ao Vinho R$:35,00</h2>
                 <p>Queijo firme com sabor marcante e leve toque de vinho, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Provolone Defumado padrão." target="_blank">
-            <img src="../images/provoloneDefumadoPadrao.jpeg">
+            <img src="./images/provoloneDefumadoPadrao.jpeg" alt="provoloneDefumadoPadrao">
             <div class="texto">
                 <h2>Queijo Provolone Defumado Padrão R$:35,00</h2>
                 <p>Queijo firme com sabor defumado suave, ideal para petiscos e porções.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Provolone Desidratado." target="_blank">
-            <img src="../images/provoloneDesidratado.jpeg">
+            <img src="./images/provoloneDesidratado.jpeg" alt="provoloneDesidratado">
             <div class="texto">
                 <h2>Queijo Provolone Desidratado R$:35,00</h2>
                 <p>Queijo crocante e de sabor intenso, ideal para petiscos.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Provolone Desidratado Com Ervas." target="_blank">
-            <img src="../images/provoloneDesidratadoErvas.jpeg">
+            <img src="./images/provoloneDesidratadoErvas.jpeg" alt="provoloneDesidratadoErvas">
             <div class="texto">
                 <h2>Queijo Provolone Desidratado Com Ervas R$:35,00</h2>
                 <p>Queijo crocante com sabor intenso e toque de ervas, ideal para petiscos.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Meia Canastra." target="_blank">
-            <img src="../images/queijoMeiaCanastra.jpeg">
+            <img src="./images/queijoMeiaCanastra.jpeg" alt="queijoMeiaCanastra">
             <div class="texto">
                 <h2>Queijo Meia Canastra R$: 35,00</h2>
                 <p>Queijo mineiro macio, de sabor suave e levemente salgado, ótimo para comer no café ou com pão.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Meia Cura." target="_blank">
-            <img src="../images/queijoMeiaCura.jpeg">
+            <img src="./images/queijoMeiaCura.jpeg" alt="queijoMeiaCura">
             <div class="texto">
                 <h2>Queijo Meia Cura R$:60,00</h2>
                 <p>Queijo mineiro com sabor mais marcante, textura firme e levemente salgado. Ideal para comer puro, com pão ou derreter em receitas.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Queijo Minas." target="_blank">
-            <img src="../images/queijoMinas.jpeg">
+            <img src="./images/queijoMinas.jpeg" alt="queijoMinas">
             <div class="texto">
                 <h2>Queijo Minas R$:35,00</h2>
                 <p>Queijo leve, branco e de sabor suave, muito consumido no dia a dia. Vai bem no café da manhã, com pão ou puro.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Mussarela." target="_blank">
-            <img src="../images/queijoMussarella.jpeg">
+            <img src="./images/queijoMussarella.jpeg" alt="queijoMussarella">
             <div class="texto">
                 <h2>Queijo Mussarela R$:35,00</h2>
                 <p>Queijo macio, de sabor suave e que derrete fácil. Muito usado em pizzas, sanduíches e lanches.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo prato." target="_blank">
-            <img src="../images/queijoPrato.jpeg">
+            <img src="./images/queijoPrato.jpeg" alt="queijoPrato">
             <div class="texto">
                 <h2>Queijo Prato R$:35,00</h2>
                 <p>Queijo macio, de sabor suave e levemente amanteigado. Muito usado em sanduíches, lanches e para derreter.</p>
             </div>
         </a>
          <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Reino." target="_blank">
-            <img src="../images/queijoReno.jpeg">
+            <img src="./images/queijoReno.jpeg" alt="queijoReno">
             <div class="texto">
                 <h2>Queijo Reino R$:35,00</h2>
                 <p>Queijo de sabor mais forte e levemente salgado, com textura firme e aroma marcante. Muito usado em tábuas de frios e receitas.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Roquefort." target="_blank">
-            <img src="../images/queijoRoquefort.jpeg">
+            <img src="./images/queijoRoquefort.jpeg" alt="queijoRoquefort">
             <div class="texto">
                 <h2>Queijo Roquefort R$:35,00</h2>
-                <p>Queijo azul de sabor forte e marcante, com veias esverdeadas e textura cremosa. Inspirado no roquefort tradicional, é feito em Minas Gerais e muito usado em saladas, molhos e tábuas de frios.</p>
+                <p>Queijo azul de sabor forte e marcante, com veias esverdeadas e textura cremosa. Inspirado no roquefort tradicional, é feito em Minas Gerais e muito usado em saladas, molhos e [...]
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Tilst." target="_blank">
-            <img src="../images/queijoTilst.jpeg">
+            <img src="./images/queijoTilst.jpeg" alt="queijoTilst">
             <div class="texto">
                 <h2>Queijo Tilst R$:35,00</h2>
                 <p>Queijo de sabor suave a levemente forte, com textura macia e algumas olhaduras. Muito usado em sanduíches, tábuas de frios e para comer puro.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Trança Temperado." target="_blank">
-            <img src="../images/queijoTrancaTemperado.jpeg">
+            <img src="./images/queijoTrancaTemperado.jpeg" alt="queijoTrancaTemperado">
             <div class="texto">
                 <h2>Queijo Trança Temperado R$:35,00</h2>
                 <p>Queijo de textura macia, feito em formato trançado e com ervas ou temperos na massa. Tem sabor suave e é ótimo para petiscos e lanches.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Trança de vinho." target="_blank">
-            <img src="../images/">
+            <img src="./images/" alt="">
             <div class="texto">
                 <h2>Queijo Trança de Vinho R$:35,00</h2>
                 <p>Queijo de textura macia, feito em formato trançado e com ervas ou temperos na massa e com um leve toque de vinho. Tem sabor suave e é ótimo para petiscos e lanches.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Trança Com Tomate." target="_blank">
-            <img src="../images/queijoTrancaTomate.jpeg">
+            <img src="./images/queijoTrancaTomate.jpeg" alt="queijoTrancaTomate">
             <div class="texto">
                 <h2>Queijo Trança Com Tomate R$:35,00</h2>
                 <p>Queijo trança com tomate é um queijo macio em formato trançado, com pedaços ou sabor de tomate. Tem gosto suave e levemente temperado, ideal para petiscos e lanches.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Ricota Padrão." target="_blank">
-            <img src="../images/ricotaPadrao.jpeg">
+            <img src="./images/ricotaPadrao.jpeg" alt="ricotaPadrao">
             <div class="texto">
                 <h2>Queijo Ricota Padrão R$:20,00</h2>
                 <p>Queijo leve, branco e de sabor suave. Tem textura macia e é muito usado em dietas, recheios e receitas leves.</p>
             </div>
         </a>
         <a class="queijo" href="https://wa.me/5535988091127?text=Olá! Tenho interesse no Queijo Ricota Temperada." target="_blank">
-            <img src="../images/ricotaTemperada.jpeg">
+            <img src="./images/ricotaTemperada.jpeg" alt="ricotaTemperada">
             <div class="texto">
                 <h2>Queijo Ricota Temperada R$:20,00</h2>
                 <p>Queijo leve e macio, com ervas e temperos misturados. Tem sabor suave e é muito usada em pães, torradas e receitas.</p>
@@ -982,6 +1065,22 @@ footer{
 
 </section>
 
+<section id="feedback">
+    <h2>Deixe seu Feedback</h2>
+
+    <form action="https://formspree.io/f/mjgdoknn" method="POST">
+        <label for="nome">Nome</label><input id="nome" type="text" name="nome" required>
+
+        <label for="email">E-mail</label><input id="email" type="email" name="email" required>
+
+        <label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">
+            Enviar Feedback
+        </button>
+    </form>
+</section>
+
 <footer>
     © 2025 Casa do Queijo — Coqueiral/MG
 </footer>
@@ -998,41 +1097,55 @@ let indiceAtual = 0;
 const total = slides.length;
 
 slides.forEach((_, i) => {
-
     const dot = document.createElement('button');
-
     dot.classList.add('dot');
-
-    if(i === 0) dot.classList.add('ativo');
-
-    dot.addEventListener('click', () => irPara(i));
-
+    if (i === 0) dot.classList.add('ativo');
+    dot.addEventListener('click', () => irParaSlide(i));
     dotsContainer.appendChild(dot);
-
 });
 
-const dots = document.querySelectorAll('.dot');
-
-function irPara(indice){
-
-    indiceAtual = (indice + total) % total;
-
-    track.style.transform =
-    `translateX(-${indiceAtual * 100}%)`;
-
-    dots.forEach(d => d.classList.remove('ativo'));
-
-    dots[indiceAtual].classList.add('ativo');
-
+function atualizarCarrossel() {
+    track.style.transform = `translateX(-${indiceAtual * 100}%)`;
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('ativo', i === indiceAtual);
+    });
 }
 
-btnNext.addEventListener('click', () => irPara(indiceAtual + 1));
+function irParaSlide(i) {
+    indiceAtual = i;
+    atualizarCarrossel();
+}
 
-btnPrev.addEventListener('click', () => irPara(indiceAtual - 1));
+btnNext.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + 1) % total;
+    atualizarCarrossel();
+});
 
-setInterval(() => irPara(indiceAtual + 1), 4000);
+btnPrev.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - 1 + total) % total;
+    atualizarCarrossel();
+});
 
 </script>
 
+
+<script>
+let tamanhoFonte=100;
+document.getElementById('abrirAcessibilidade').onclick=function(){
+const m=document.getElementById('menuAcessibilidade');
+m.style.display=m.style.display==='none'?'flex':'none';
+};
+function aumentarFonte(){tamanhoFonte+=10;document.body.style.fontSize=tamanhoFonte+'%';}
+function diminuirFonte(){tamanhoFonte-=10;document.body.style.fontSize=tamanhoFonte+'%';}
+function altoContraste(){document.body.classList.toggle('contraste');}
+function resetarAcessibilidade(){tamanhoFonte=100;document.body.style.fontSize='100%';document.body.classList.remove('contraste');}
+</script>
+
+<div vw class="enabled">
+<div vw-access-button class="active"></div>
+<div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
 </body>
 </html>
